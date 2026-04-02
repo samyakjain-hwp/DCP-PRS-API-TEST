@@ -1,0 +1,31 @@
+curl 'https://prs-system.mpstechnologies.com/v1/auth/login?authorization=Basic+aGltYW5zaHUua2hvd2FsQGhpZ2h3aXJlcHJlc3MuY29tOnBhc3MxMjM%3D' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'accept-language: en-US,en;q=0.9,en-IN;q=0.8' \
+  -H 'content-type: application/json' \
+  -H 'origin: https://dcp-prs.mpstechnologies.com' \
+  -H 'priority: u=1, i' \
+  -H 'referer: https://dcp-prs.mpstechnologies.com/' \
+  -H 'sec-ch-ua: "Not:A-Brand";v="99", "Microsoft Edge";v="145", "Chromium";v="145"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0' \
+  --data-raw 'null'
+
+---RESPONSE---
+
+{
+    "path": "/v1/auth/login",
+    "time": "09-03-2026T06:33:49.741Z",
+    "method": null,
+    "message": "Created",
+    "code": 201,
+    "data": {
+        "jwt": "eyJhbGciOiJIUzUxMiJ9.eyJzeXN0ZW1Sb2xlcyI6WyJTWVNURU0iXSwicHVibGlzaGVycyI6W10sInV1aWQiOiIwMTljMGRlMi1lN2E4LTc3ZGYtYTVkNy1iNDk0NGMwNTFjYzMiLCJzdWIiOiJoaW1hbnNodS5raG93YWxAaGlnaHdpcmVwcmVzcy5jb20iLCJpYXQiOjE3NzMwMzgwMjksImV4cCI6MTc3MzEyNDQyOX0.lQjjZ5vb2GTbLhmZ2JksGImS_POLzAcBX0WlzZGA5iUUJrX6MxWgMyphm6-CcKWBO6N_Yriq1Z8Dzgpbl2wR7w",
+        "roles": [
+            "SYSTEM"
+        ]
+    }
+}

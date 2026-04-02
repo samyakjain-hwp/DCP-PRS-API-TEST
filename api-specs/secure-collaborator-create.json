@@ -1,0 +1,149 @@
+{
+  "apiName": "Secure Collaborator Create",
+  "baseUrl": "https://prs-system.mpstechnologies.com",
+  "endpoint": "/v1/secure/collaborator/create",
+  "method": "POST",
+  "contentType": "multipart/form-data",
+  "authType": "BEARER",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer {{token}}"
+  },
+  "queryParams": {},
+  "body": {
+    "dto": {
+      "collaborator": "collab01",
+      "user": {
+        "email": "collab01@gmail.com",
+        "firstName": "Collab",
+        "lastName": "Ator"
+      }
+    }
+  },
+  "fileFields": {
+    "logo": "partnership_17376517.png",
+    "favicon": "achievement_12270262.png"
+  },
+  "jsonPartFields": [
+    "dto"
+  ],
+  "expectedStatus": 201,
+  "expectedResponseFields": {
+    "path": "notNull",
+    "time": "notNull",
+    "message": "notNull",
+    "code": 201,
+    "data.collaborator": "notNull",
+    "data.colorCode": "notNull",
+    "data.fontFamily": "notNull",
+    "data.systemUuid": "notNull",
+    "data.user.systemUuid": "notNull",
+    "data.user.email": "notNull",
+    "data.user.password": "notNull",
+    "data.user.firstName": "notNull",
+    "data.user.lastName": "notNull"
+  },
+  "testDataPrefix": "autotest_",
+  "testDataFields": [
+    "dto.collaborator",
+    "dto.user.email",
+    "dto.user.firstName",
+    "dto.user.lastName"
+  ],
+  "responseSchema": {
+    "type": "object",
+    "required": [
+      "path",
+      "time",
+      "method",
+      "message",
+      "code",
+      "data"
+    ],
+    "properties": {
+      "path": {
+        "type": "string"
+      },
+      "time": {
+        "type": "string"
+      },
+      "method": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "message": {
+        "type": "string"
+      },
+      "code": {
+        "type": "integer"
+      },
+      "data": {
+        "type": "object",
+        "required": [
+          "collaborator",
+          "colorCode",
+          "fontFamily",
+          "systemUuid",
+          "user"
+        ],
+        "properties": {
+          "collaborator": {
+            "type": "string"
+          },
+          "colorCode": {
+            "type": "string"
+          },
+          "fontFamily": {
+            "type": "string"
+          },
+          "systemUuid": {
+            "type": "string"
+          },
+          "user": {
+            "type": "object",
+            "required": [
+              "id",
+              "systemUuid",
+              "email",
+              "password",
+              "firstName",
+              "middleName",
+              "lastName"
+            ],
+            "properties": {
+              "id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "systemUuid": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "middleName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "lastName": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

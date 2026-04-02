@@ -1,0 +1,42 @@
+curl --location 'https://prs-system.mpstechnologies.com/v1/secure/collaborator/create' \
+--header 'accept: application/json, text/plain, */*' \
+--header 'accept-language: en-US,en;q=0.9,en-IN;q=0.8' \
+--header 'authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzeXN0ZW1Sb2xlcyI6WyJTWVNURU0iXSwicHVibGlzaGVycyI6W10sInV1aWQiOiIwMTljMGRlMi1lN2E4LTc3ZGYtYTVkNy1iNDk0NGMwNTFjYzMiLCJzdWIiOiJoaW1hbnNodS5raG93YWxAaGlnaHdpcmVwcmVzcy5jb20iLCJpYXQiOjE3NzI0NTc3NzMsImV4cCI6MTc3MjU0NDE3M30.6lvsvUz2if9gBGSEAL2e2ghoEH3FFH81vBgC012wRNRc1sl0eJM1uUW2VD-zMZu8-2af1oz-2bI2F4KlZKlyaA' \
+--header 'origin: https://dcp-prs.mpstechnologies.com' \
+--header 'priority: u=1, i' \
+--header 'referer: https://dcp-prs.mpstechnologies.com/' \
+--header 'sec-ch-ua: "Not:A-Brand";v="99", "Microsoft Edge";v="145", "Chromium";v="145"' \
+--header 'sec-ch-ua-mobile: ?0' \
+--header 'sec-ch-ua-platform: "Windows"' \
+--header 'sec-fetch-dest: empty' \
+--header 'sec-fetch-mode: cors' \
+--header 'sec-fetch-site: same-site' \
+--header 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0' \
+--header 'Cookie: __cf_bm=zg7ZnxOigAUQWlbx.QNeCyHJeP5qE7Q8ib3.gGzAhxE-1772515434-1.0.1.1-hkl.S7f8L64StDgWBD2USsk37cvft.LzyJbX_4q0NsJODqRLXvSz6eAzPPSZ_KT2jiE9uuyKivD87bckLDI5o_HfCk5.gnuQDyMo.LrLBHo; CF_AppSession=n264170d82de173e6; __cf_bm=zg7ZnxOigAUQWlbx.QNeCyHJeP5qE7Q8ib3.gGzAhxE-1772515434-1.0.1.1-hkl.S7f8L64StDgWBD2USsk37cvft.LzyJbX_4q0NsJODqRLXvSz6eAzPPSZ_KT2jiE9uuyKivD87bckLDI5o_HfCk5.gnuQDyMo.LrLBHo; CF_AppSession=n264170d82de173e6' \
+--form 'dto="{\"collaborator\": \"collab01\", \"user\": {\"email\": \"collab01@gmail.com\", \"firstName\": \"Collab\", \"lastName\": \"Ator\"}}";type=application/json' \
+--form 'logo=@"/C:/Users/Anurag.Chauhan/Downloads/partnership_17376517.png"' \
+--form 'favicon=@"/C:/Users/Anurag.Chauhan/Downloads/achievement_12270262.png"'
+
+---RESPONSE---
+{
+    "path": "/v1/secure/collaborator/create",
+    "time": "06-03-2026T12:51:57.260Z",
+    "method": null,
+    "message": "Created",
+    "code": 201,
+    "data": {
+        "collaborator": "demo060326",
+        "colorCode": "#e91e8c",
+        "fontFamily": "Arial",
+        "systemUuid": "019cc334-65e4-72bf-b713-376fdb244bba",
+        "user": {
+            "id": null,
+            "systemUuid": "019cc334-66c4-783f-9ae9-2f5ac54161d8",
+            "email": "demo060326@gmail.com",
+            "password": "FgOQfY4q9m",
+            "firstName": "demo060326",
+            "middleName": null,
+            "lastName": "admin"
+        }
+    }
+}
