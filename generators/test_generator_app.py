@@ -34,8 +34,8 @@ def process_spec(spec_path: str):
     
     source_code = renderer.render(spec, test_cases)
     
-    # Derive output filename from input filename
-    base_name = os.path.basename(spec_path).replace('.json', '')
+    # Derive output filename from input filename and use underscores instead of hyphens
+    base_name = os.path.basename(spec_path).replace('.json', '').replace('-', '_')
     if not base_name.startswith('test_'):
         file_name = f"test_{base_name}.py"
     else:

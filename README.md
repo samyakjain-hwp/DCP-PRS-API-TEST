@@ -10,12 +10,12 @@ Copy a cURL command from Chrome DevTools (right-click request > Copy > Copy as c
 
 ```bash
 # Save your curl command to curl-inputs/curl-input.txt, then run:
-python generators/CurlToSpecConverter.py curl-inputs/curl-input.txt
+python generators/curl_to_spec.py curl-inputs/curl-input.txt
 ```
 
 This parses the cURL and generates an API spec JSON in `api-specs/`. Our implementation handles the following:
 
-- **Core Generator (`generators/CurlToSpecConverter.py`)**:
+- **Core Generator (`generators/curl_to_spec.py`)**:
   - **cURL Parsing**: Processes files from `curl-inputs/` using `shlex` and `urllib.parse` to extract clean URL, method, headers, and body data.
   - **Header Sanitization**: Filters out browser noise (like `sec-ch-ua`, `referer`, `cookie`) and masks Bearer tokens with `{{token}}`.
   - **Payload Analysis**: Decodes JSON, URL-encoded, and complex `multipart/form-data` bodies, separating out `fileFields`.

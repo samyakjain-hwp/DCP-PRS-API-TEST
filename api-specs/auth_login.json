@@ -1,0 +1,72 @@
+{
+  "apiName": "Auth Login",
+  "baseUrl": "https://prs-system.mpstechnologies.com",
+  "endpoint": "/v1/auth/login",
+  "method": "POST",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "content-type": "application/json"
+  },
+  "queryParams": {},
+  "body": null,
+  "expectedStatus": 201,
+  "expectedResponseFields": {
+    "path": "notNull",
+    "time": "notNull",
+    "message": "notNull",
+    "code": 201,
+    "data.jwt": "notNull",
+    "data.roles": "notNull"
+  },
+  "testDataPrefix": "autotest_",
+  "testDataFields": [],
+  "responseSchema": {
+    "type": "object",
+    "required": [
+      "path",
+      "time",
+      "method",
+      "message",
+      "code",
+      "data"
+    ],
+    "properties": {
+      "path": {
+        "type": "string"
+      },
+      "time": {
+        "type": "string"
+      },
+      "method": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "message": {
+        "type": "string"
+      },
+      "code": {
+        "type": "integer"
+      },
+      "data": {
+        "type": "object",
+        "required": [
+          "jwt",
+          "roles"
+        ],
+        "properties": {
+          "jwt": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

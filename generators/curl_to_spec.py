@@ -6,11 +6,11 @@ import shlex
 from urllib.parse import urlparse, parse_qs, unquote
 import importlib.util
 
-# Load schemaInferrer dynamically
-helper_path = os.path.join(os.path.dirname(__file__), "..", "helpers", "SchemaInferrer.py")
-spec_inferrer = importlib.util.spec_from_file_location("schemaInferrer", helper_path)
-schemaInferrer = importlib.util.module_from_spec(spec_inferrer)
-spec_inferrer.loader.exec_module(schemaInferrer)
+# Load schema_inferrer dynamically
+helper_path = os.path.join(os.path.dirname(__file__), "..", "helpers", "schema_inferrer.py")
+spec_inferrer = importlib.util.spec_from_file_location("schema_inferrer", helper_path)
+schema_inferrer = importlib.util.module_from_spec(spec_inferrer)
+spec_inferrer.loader.exec_module(schema_inferrer)
 
 SPECS_DIR = "api-specs"
 SKIP_HEADERS = {
@@ -94,7 +94,7 @@ def build_api_name(path):
 
 def build_file_name(path):
     parts = [p for p in path.lstrip("/").split("/") if p and not re.match(r"v\d+", p)]
-    return "-".join([p.lower() for p in parts if p])
+    return "_".join([p.lower() for p in parts if p])
 
 def tokenize(input_str):
     try:
@@ -343,7 +343,7 @@ def main():
     if sample_response:
         try:
             parsed_resp = json.loads(sample_response)
-            schema = schemaInferrer.infer(parsed_resp)
+            schema = schema_inferrer.infer(parsed_resp)
             spec["responseSchema"] = schema
             print("  responseSchema generated from sample response.")
 
