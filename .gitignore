@@ -8,6 +8,8 @@ __pycache__/
 apiJson/
 output/
 parsers/
+tests/
+
 
 #files
 renderer.py
@@ -15,6 +17,7 @@ rules.py
 requirements-python.txt
 test_generator.py
 curl-input-dummy.txt
+auth-login-dummy.json
 
 # C extensions
 *.so
