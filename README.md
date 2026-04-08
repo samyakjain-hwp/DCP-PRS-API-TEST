@@ -25,3 +25,33 @@ This parses the cURL and generates an API spec JSON in `api-specs/`. Our impleme
   - **Structure Mapping**: Recursively determines types and required properties from sample JSON to populate `expectedResponseFields`.
 - **Standardized Inputs (`curl-inputs/`)**:
   - Designed to hold raw text captures from Chrome DevTools, providing a single source of truth for generating specifications and managing sample payloads.
+
+## Test Generation
+
+### Generating Pytest Code from API Specs
+
+Once you have an API specification JSON in `api-specs/`, you can generate executable Python tests.
+
+```bash
+# Generate a test case for specific API spec:
+python generators/test_generator_app.py api-specs/auth_login.json
+```
+
+This will create a new test file in the `tests/` directory (e.g., `tests/test_auth_login.py`).
+
+### Architectural Pipeline (How it Works)
+
+The generation process follows a structured pipeline:
+
+- **Entry Point (`generators/test_generator_app.py`)**:
+  - This is the main orchestrator script. 
+  - It loads credentials (like `TEST_USERNAME`, `TEST_PASSWORD`) from a `.env` file and reads the target JSON specification.
+- **Logic Generation (`generators/test_case_generator.py`)**:
+  - Analyzes the specification to determine which test scenarios to create (e.g., Positive vs. Negative tests).
+  - Returns a list of `TestCase` objects containing endpoint details and expected assertions.
+- **Code Rendering (`generators/rule-based/test_code_renderer.py`)**:
+  - Acts as the "writer" that converts logical test cases into actual Python code.
+  - Automatically builds **Pytest Fixtures** for authentication (handling Basic and Bearer/JWT).
+  - Generates the `requests` library calls and dynamic assertion code for status codes and response structures.
+- **Output**:
+  - The final string of code is saved as a new `.py` file in the `tests/` folder, ready to be executed via `pytest`.

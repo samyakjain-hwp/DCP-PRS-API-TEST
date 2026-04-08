@@ -10,6 +10,9 @@ class TestCodeRenderer:
         sb.append("import base64")
         sb.append("import os")
         sb.append("import json")
+        sb.append("from dotenv import load_dotenv")
+        sb.append("")
+        sb.append("load_dotenv()")
         sb.append("")
         
         has_credentials = bool(spec.username and spec.password)

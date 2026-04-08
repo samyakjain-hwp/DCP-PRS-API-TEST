@@ -9,6 +9,8 @@ apiJson/
 output/
 parsers/
 tests/
+reports/
+
 
 
 #files
@@ -18,6 +20,7 @@ requirements-python.txt
 test_generator.py
 curl-input-dummy.txt
 auth-login-dummy.json
+test.py
 
 # C extensions
 *.so

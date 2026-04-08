@@ -1,6 +1,10 @@
 import json
 import sys
 import os
+from dotenv import load_dotenv
+
+# Load variables from .env file
+load_dotenv()
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 rule_based_dir = os.path.join(current_dir, 'rule-based')
