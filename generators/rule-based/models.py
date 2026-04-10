@@ -17,6 +17,8 @@ class ApiSpec:
         self.expectedStatus: int = data.get("expectedStatus", 200)
         self.expectedResponseFields: Dict[str, Any] = data.get("expectedResponseFields", {})
         self.responseSchema: Dict[str, Any] = data.get("responseSchema", {})
+        self.testDataFields: list = data.get("testDataFields", [])
+        self.testDataPrefix: str = data.get("testDataPrefix", "autotest_")
 
 class TestCase:
     def __init__(self):
@@ -31,3 +33,6 @@ class TestCase:
         self.validateResponseStructure: bool = False
         self.includeAuth: bool = True
         self.responseFieldAssertions: Dict[str, Any] = {}
+        self.useRandomTestData: bool = False
+        self.testDataFields: list = []
+        self.testDataPrefix: str = "autotest_"

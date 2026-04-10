@@ -131,6 +131,13 @@ class TestCaseGenerator:
                 schema.responseFieldAssertions = {"_jsonSchema": True}
             tests.append(schema)
 
+        # Apply random test data to ALL POST tests that carry a body with testDataFields
+        for tc in tests:
+            if spec.method == "POST" and spec.testDataFields and tc.body:
+                tc.useRandomTestData = True
+                tc.testDataFields = spec.testDataFields
+                tc.testDataPrefix = spec.testDataPrefix
+
         return tests
 
     def _build_name_prefix(self, endpoint: str) -> str:
